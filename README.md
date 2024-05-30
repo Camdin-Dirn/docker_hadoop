@@ -1,1 +1,1 @@
-# docker_hadoop
+# Docker running hadoop
