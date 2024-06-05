@@ -74,3 +74,27 @@ Here I had to change my command line to PowerShell because in git I keep getting
    curl https://github.com/wxw-matt/docker-hadoop/blob/master/jobs/jars/WordCount.jar -o WordCounter.jar
    ```
    
+10. Load data in HDFS
+
+   ```
+   cd /
+   hdfs dfs -mkdir /test-1-input
+   hdfs dfs -copyFromLocal -f /app/data/*.txt /test-1-input/
+   ```
+11. Run Hadoop
+
+   ```
+   hadoop jar jars/WordCount.jar WordCount /test-1-input /test-1-output
+   ```
+
+12. Copy results out of hdfs
+
+   ```
+   hdfs dfs -copyToLocal /test-1-output /app/res/
+   ```
+
+13. See the results!
+
+   ```
+   cat /app/res/test-1-output/part-r-00000
+   ```
