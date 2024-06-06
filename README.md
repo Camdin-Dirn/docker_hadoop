@@ -87,6 +87,22 @@ Here I had to change my command line to PowerShell because in git I keep getting
    hadoop jar jars/WordCount.jar WordCount /test-1-input /test-1-output
    ```
 
+This is where I got stuck always getting an error that I could not find away around.
+   ```
+   Exception in thread "main" java.io.IOException: Error opening job jar: WordCount.jar
+        at org.apache.hadoop.util.RunJar.run(RunJar.java:261)
+        at org.apache.hadoop.util.RunJar.main(RunJar.java:236)
+Caused by: java.util.zip.ZipException: error in opening zip file
+        at java.util.zip.ZipFile.open(Native Method)
+        at java.util.zip.ZipFile.<init>(ZipFile.java:225)
+        at java.util.zip.ZipFile.<init>(ZipFile.java:155)
+        at java.util.jar.JarFile.<init>(JarFile.java:166)
+        at java.util.jar.JarFile.<init>(JarFile.java:103)
+        at org.apache.hadoop.util.RunJar.run(RunJar.java:259)
+        ... 1 more
+   ```
+If you find the fix to this part the next two parts are your next steps.
+
 12. Copy results out of hdfs
 
    ```
