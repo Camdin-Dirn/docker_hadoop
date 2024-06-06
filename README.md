@@ -102,7 +102,7 @@ Caused by: java.util.zip.ZipException: error in opening zip file
         ... 1 more
    ```
 
-Instead of trying the curl I added the wxw repo to my system and used docker -cp to put it into my jars file in the container.
+I added the wxw repo to my system and used docker -cp to put it into my jars file in the container. This fixed a problem that I unknowenly created in step 9.
 I had to start by leaving the container then ran the code below.
 
    ```
@@ -113,6 +113,10 @@ I had to start by leaving the container then ran the code below.
    docker cp WordCount.jar namenode:/app/jars/WordCount.jar
    ```
 This fixed the error I previously had and it worked and Hadoop is ran 
+
+   ```
+   hadoop jar jars/WordCount.jar WordCount /test-1-input /test-1-output
+   ```
 
 12. Copy results out of hdfs
 
