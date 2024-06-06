@@ -101,7 +101,18 @@ Caused by: java.util.zip.ZipException: error in opening zip file
         at org.apache.hadoop.util.RunJar.run(RunJar.java:259)
         ... 1 more
    ```
-If you find the fix to this part the next two parts are your next steps.
+
+Instead of trying the curl I added the wxw repo to my system and used docker -cp to put it into my jars file in the container.
+I had to start by leaving the container then ran the code below.
+
+   ```
+   mkdir wxw
+   cd wxw
+   git clone https://github.com/wxw-matt/docker-hadoop.git
+   cd docker-hadoop/jobs/jars
+   docker cp WordCount.jar namenode:/app/jars/WordCount.jar
+   ```
+This fixed the error I previously had and it worked and Hadoop is ran 
 
 12. Copy results out of hdfs
 
