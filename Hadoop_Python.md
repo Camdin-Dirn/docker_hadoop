@@ -8,13 +8,15 @@
 import sys
 import re
 
-word_pattern = re.compile(r'[a-zA-Z]+')
+word_pattern = re.compile(r'^[a-zA-Z]+$')
 
 for line in sys.stdin:
     line = line.strip()
-    words = word_pattern.findall(line)
+    words = line.split()
     for word in words:
-        print(f'{word}\t1')
+        if word_pattern.match(word):
+            print(f'{word.lower()}\t1')
+
 ```
 ## This the mapred I used
 
